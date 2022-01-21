@@ -4,7 +4,7 @@ It is a codebase released by ExpressVPN as a model to use their `lightway-core` 
 
 ## Working of lightway-laser
 
-<img src="algo-light.png" />
+<img src="algo-dark.png" />
 
 
 More updates soon!
