@@ -21,6 +21,13 @@
 #include "flow.h"
 #include "util.h"
 
+/* Steps:
+ * 1. uv_udp_init
+ * 	uv_ipv4_addr
+ * 2. uv_udp_bind
+ * 3. uv_udp_rev_start
+ * 4. send using buffers
+ */
 void configure_udp_server(lw_config_t *config, lw_state_t *state) {
   zlogf_time(ZLOG_INFO_LOG_MSG, "Configuring UDP Server...\n");
 

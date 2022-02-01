@@ -26,10 +26,6 @@
 #include "udp/server.h"
 #include "udp/client.h"
 
-// TCP Implementation
-#include "tcp/client.h"
-#include "tcp/server.h"
-
 // Tunnel header
 #include "tun/tun.h"
 
@@ -77,8 +73,10 @@ lw_state_t *lw_start_server(lw_config_t *config) {
 
 	/* TODO: Implement TCP */
 	if(config->streaming) {
-		zlogf_time(ZLOG_INFO_LOG_MSG, "Streaming is not supported yet");
+		configure_tcp_server(config, state);
+	/*	zlogf_time(ZLOG_INFO_LOG_MSG, "Streaming is not supported yet");
 		LW_EXIT_WITH_FAILURE();
+		*/
 	} else {
 		configure_udp_server(config, state);
 	}
@@ -90,8 +88,10 @@ lw_state_t *lw_start_server(lw_config_t *config) {
 
 	/* TODO: Implement TCP */
 	if(config->streaming) {
-		zlogf_time(ZLOG_INFO_LOG_MSG, "Streaming is not supported yet");
+		start_tcp_server(state);
+		/* zlogf_time(ZLOG_INFO_LOG_MSG, "Streaming is not supported yet");
 		LW_EXIT_WITH_FAILURE();
+		*/
 	} else {
 		start_udp_server(state);
 	}

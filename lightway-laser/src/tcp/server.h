@@ -22,8 +22,8 @@
 
 #include <lw.h>
 
-void configure_udp_server(lw_config_t *config, lw_state_t *state);
+void configure_tcp_server(lw_config_t *config, lw_state_t *state);
 
-void start_udp_server(lw_state_t *state);
+void start_tcp_server(lw_state_t *state);
 
 #endif  // LW_UDP_SERVER_H

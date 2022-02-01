@@ -21,30 +21,32 @@
 #include "flow.h"
 #include "util.h"
 
-void configure_udp_server(lw_config_t *config, lw_state_t *state) {
+/* Steps:
+ *	[x]1. uv_tcp_init
+ *		uv_ipv4_addr
+ *	[x]2. uv_tcp_bind
+ *	3. uv_listen
+ *		callback on new connection
+ *	4. uv_accept
+ *	5. Stream to send data
+ */
+void configure_tcp_server(lw_config_t *config, lw_state_t *state) {
   zlogf_time(ZLOG_INFO_LOG_MSG, "Configuring UDP Server...\n");
 
-  int res = uv_udp_init(state->loop, &state->udp_socket);
-  LW_CHECK_WITH_MSG(res == 0, "Unable to initialise UDP socket");
+  int res = uv_tcp_init(state->loop, &state->tcp_socket);
+  LW_CHECK_WITH_MSG(res == 0, "Unable to initialise TCP socket");
 
   struct sockaddr_in recv_addr;
   res = uv_ip4_addr(config->server_ip, config->server_port, &recv_addr);
   LW_CHECK_WITH_MSG(res == 0, "Invalid IP address or port");
 
-  res = uv_udp_bind(&state->udp_socket, (const struct sockaddr *)&recv_addr, UV_UDP_REUSEADDR);
-  LW_CHECK_WITH_MSG(res == 0, "Unable to bind UDP socket");
-
-  int udp_buffer_size = 15 * MEGABYTE;
-  uv_send_buffer_size((uv_handle_t *)&state->udp_socket, &udp_buffer_size);
-  uv_recv_buffer_size((uv_handle_t *)&state->udp_socket, &udp_buffer_size);
-
-  state->udp_socket.data = state;
-  he_ssl_ctx_set_outside_write_cb(state->he_ctx, udp_write_cb);
+  res = uv_tcp_bind(&state->udp_socket, (const struct sockaddr *)&recv_addr, 0);
+  LW_CHECK_WITH_MSG(res == 0, "Unable to bind TCP socket");
 
   return;
 }
 
-void start_udp_server(lw_state_t *state) {
+void start_tcp_server(lw_state_t *state) {
   int res = uv_udp_recv_start(&state->udp_socket, alloc_buffer, on_read);
   LW_CHECK_WITH_MSG(res == 0, "Unable to start recv on udp socket");
 
