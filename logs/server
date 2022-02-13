@@ -1,0 +1,12 @@
+
+docker: 'compose' is not a docker command.
+See 'docker --help'
+FOUND DEV AND IP eth0 172.18.0.3
+FOUND GATEWAY:  172.18.0.1
+[23:05:36.059580s] Starting server...
+[23:05:36.060734s] Listening on:         0.0.0.0:19655
+[23:05:36.060746s] Username:             test
+[23:05:36.060750s] Server cert:          certs/shared.crt
+[23:05:36.060753s] Server key:           certs/server.key
+[23:05:36.060755s] Streaming Mode:       false
+[23:05:36.060758s] Tun device:           helium-test
