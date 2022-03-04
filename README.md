@@ -12,9 +12,9 @@ Image Credits : Me 😅
 
 ## Progress
 
-- [ ] Understand lightway-laser working
+- [X] Understand lightway-laser working
 - [ ] Undesrtand libuv to implement tcp
-- [ ] Undesratnd libhelium (also known as lightway-core)
+- [X] Undesratnd libhelium (also known as lightway-core)
 - [ ] Write an implementation of the vpn
 - [ ] Test on server
 - [ ] Write complete documentation
