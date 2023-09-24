@@ -37,7 +37,7 @@ sequenceDiagram
     VPNServer->>+HeliumServer: Wrap response
     HeliumServer->>-VPNServer: Wrapped response
     VPNServer->>-VPNClient: response over UDP
-    VPNClient->>+HeliumClient: Wrap the Packet
+    VPNClient->>+HeliumClient: Unwrap the Packet
     HeliumClient->>-VPNClient: Unwrapped Packet
     VPNClient->>-ClientTunnel: Response packet
     ClientTunnel->>-Client: Response from Internet
