@@ -5,7 +5,6 @@ Milestone #1 :
 - [ ] Helium server setup with config
 - [ ] Helium client setup with config
 - [ ] Tunnel setup for server and client
-  
 - [ ] Testing on mobile network
 
 Milestone #2 :
