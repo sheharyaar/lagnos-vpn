@@ -21,9 +21,10 @@ Milestone #3 :
 
 libhelium is a library by ExpressVPN that abstracts away the process of wrapping and unwrappin ssl packed data. This is just one step of the entire process. The user needs to handle the creation and routing of `tun` interface. The user also needs to handle the transport service between the server and the client.
 
-Here is the complete packet flow in the communication :
+Here is the complete packet flow in the communication (it's in dark theme) :
 
 ```mermaid
+%%{init: {'theme': 'dark'}}%%
 sequenceDiagram
     Client->>+ClientTunnel: Packet for the internet
     ClientTunnel->>+VPNClient: Reads packet from tunnel
