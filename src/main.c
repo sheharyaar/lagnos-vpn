@@ -24,12 +24,21 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    he_ssl_ctx_t *ssl_ctx = NULL;
+    he_return_code_t ret;
+
     // setting allocators, can use jemalloc or tcmalloc
     he_set_allocators(malloc, calloc, realloc, free);
 
     // check if server or client
     if (strcmp(argv[1], "server") == 0) {
-        server_init();
+        ssl_ctx = server_init();
+        ret = server_start(ssl_ctx);
+        if (ret != HE_SUCCESS) {
+            fprintf(stderr, "failed to start server, error=%d\n", ret);
+            return 1;
+        }
+
     } else if (strcmp(argv[1], "client") == 0) {
         return 1;
     } else {
