@@ -1,46 +1,17 @@
-# ToDo
+[![forthebadge](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTQuMDM4NDcxMjIxOTIzODMiIGhlaWdodD0iMzUiIHZpZXdCb3g9IjAgMCAyNTQuMDM4NDcxMjIxOTIzODMgMzUiPjxyZWN0IHdpZHRoPSI3Ny41MDY3NDgxOTk0NjI4OSIgaGVpZ2h0PSIzNSIgZmlsbD0iIzkwMTNmZSIvPjxyZWN0IHg9Ijc3LjUwNjc0ODE5OTQ2Mjg5IiB3aWR0aD0iMTc2LjUzMTcyMzAyMjQ2MDk0IiBoZWlnaHQ9IjM1IiBmaWxsPSIjZjVhNjIzIi8+PHRleHQgeD0iMzguNzUzMzc0MDk5NzMxNDQ1IiB5PSIxNy41IiBmb250LXNpemU9IjEyIiBmb250LWZhbWlseT0iJ1JvYm90bycsIHNhbnMtc2VyaWYiIGZpbGw9IiNGRkZGRkYiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGFsaWdubWVudC1iYXNlbGluZT0ibWlkZGxlIiBsZXR0ZXItc3BhY2luZz0iMiI+U1RBVFVTPC90ZXh0Pjx0ZXh0IHg9IjE2NS43NzI2MDk3MTA2OTMzNiIgeT0iMTcuNSIgZm9udC1zaXplPSIxMiIgZm9udC1mYW1pbHk9IidNb250c2VycmF0Jywgc2Fucy1zZXJpZiIgZmlsbD0iI0ZGRkZGRiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC13ZWlnaHQ9IjkwMCIgYWxpZ25tZW50LWJhc2VsaW5lPSJtaWRkbGUiIGxldHRlci1zcGFjaW5nPSIyIj5XT1JLIElOIFBST0dSRVNTPC90ZXh0Pjwvc3ZnPg==)](https://forthebadge.com)
 
-Milestone #1 :
+# Lagnos VPN
 
-- [ ] Helium server setup with config
-  - [ ] Tunnel setup
-  - [ ] Transport setup
-- [ ] Helium client setup with config
-- [ ] Tunnel setup for server and client
-- [ ] Testing on mobile network
+This is a fresh start towards building by SSL based VPN. This is solely-worked on by me, I am not accepting contributions at this time. 
 
-Milestone #2 :
+Deadline : 31 December 2023 for a POC
 
-- [ ] SNI spoofing
-- [ ] Testing on LAN network
+#### TODO
 
-Milestone #3 :
-
-- [ ] Kernel based offloading and routing research
-
-# Theory
-
-libhelium is a library by ExpressVPN that abstracts away the process of wrapping and unwrappin ssl packed data. This is just one step of the entire process. The user needs to handle the creation and routing of `tun` interface. The user also needs to handle the transport service between the server and the client.
-
-Here is the complete packet flow in the communication (it's in dark theme) :
-
-```mermaid
-%%{init: {'theme': 'dark'}}%%
-sequenceDiagram
-    Client->>+ClientTunnel: Packet for the internet
-    ClientTunnel->>+VPNClient: Reads packet from tunnel
-    VPNClient->>+HeliumClient: Wrap the packet
-    HeliumClient->>-VPNClient: SSL Wrapped packet
-    VPNClient->>+VPNServer: Packet over UDP/TCP
-    VPNServer->>+HeliumServer: Wrapped packet
-    HeliumServer->>-VPNServer: Unwrapped Paclet
-    VPNServer->>+Internet: Internet (masquerade)
-    Internet->>-VPNServer: Response (masquerade)
-    VPNServer->>+HeliumServer: Wrap response
-    HeliumServer->>-VPNServer: Wrapped response
-    VPNServer->>-VPNClient: response over UDP
-    VPNClient->>+HeliumClient: Unwrap the Packet
-    HeliumClient->>-VPNClient: Unwrapped Packet
-    VPNClient->>-ClientTunnel: Response packet
-    ClientTunnel->>-Client: Response from Internet
-```
+- [ ] Overall design of the VPN and the platform agnostic functions
+- [ ] Bash script to setup routing tables
+- [ ] Checkpoint 1 : Open a tunnel and inspect the packets
+- [ ] Checkpoint 2 : Send packets without SSL to the client and back
+- [ ] Checkpoint 3 : Send packets with SSL to the client and back
+- [ ] Checkpoint 4 : Setup authentication and session management
+- [ ] Optional : Userspace and kernel optimisations if needed
