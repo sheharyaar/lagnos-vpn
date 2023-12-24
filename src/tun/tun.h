@@ -14,6 +14,8 @@
  * < 0 on error
  * fd on success
  */
-int tun_alloc(VPN_CTX ctx, char *dev);
+int tun_alloc(VPN_CTX ctx);
+
+void tun_close(VPN_CTX ctx);
 
 #endif

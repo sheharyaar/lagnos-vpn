@@ -5,7 +5,7 @@ CC := gcc
 CFLAGS := -Wall -Werror -g
 
 # Source directories
-SRC_DIRS := src/log src/tun
+SRC_DIRS := src/log src/tun src/transport
 
 # Source files
 SRCS := $(wildcard $(SRC_DIRS:=/*.c)) src/vpn.c
