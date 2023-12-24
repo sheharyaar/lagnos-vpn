@@ -8,7 +8,7 @@ Deadline : 31 December 2023 for a POC
 
 #### TODO
 
-- [ ] Overall design of the VPN and the platform agnostic functions
+- [X] Overall design of the VPN and the platform agnostic functions
 - [ ] Bash script to setup routing tables
 - [ ] Checkpoint 1 : Open a tunnel and inspect the packets
 - [ ] Checkpoint 2 : Send packets without SSL to the client and back
