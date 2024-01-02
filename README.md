@@ -4,7 +4,7 @@
 
 This is a fresh start towards building by SSL based VPN. This is solely-worked on by me, I am not accepting contributions at this time. 
 
-Deadline : 31 December 2023 for a POC
+Deadline : ~31 December 2023 for a POC~ Due to other high priority tasks, this project is suspended for now. Maybe I will pick this up in April, 2024.
 
 #### TODO
 
