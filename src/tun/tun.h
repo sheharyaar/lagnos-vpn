@@ -1,5 +1,5 @@
-#ifndef _LAGNOS_TUN
-#define _LAGNOS_TUN
+#ifndef _LAGNOS_TUN_H
+#define _LAGNOS_TUN_H
 
 #include "../vpn.h"
 

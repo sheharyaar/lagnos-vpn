@@ -1,5 +1,5 @@
-#ifndef _LAGNOS_VPN
-#define _LAGNOS_VPN
+#ifndef _LAGNOS_VPN_H
+#define _LAGNOS_VPN_H
 
 #include "./log/log.h"
 
