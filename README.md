@@ -15,9 +15,7 @@ Deadline : ~31 December 2023 for a POC~ Due to other high priority tasks, this p
 - [ ] Checkpoint 2 : Send packets without SSL to the client and back
 - [ ] Checkpoint 3 : Send packets with SSL to the client and back
 - [ ] Checkpoint 4 : Setup authentication and session management
-<<<<<<< Updated upstream
 - [ ] Optional : Userspace and kernel optimisations if needed
-=======
 - [ ] Checkpoint 5 : Add support for config files
 - [ ] Checkpoint 6 : Add support for multiple peers
 - [ ] Optional : Userspace and kernel optimisations if needed
@@ -44,4 +42,3 @@ sudo ./cleanup-tun.sh
 
 # TODO: Stopping the VPN
 ```
->>>>>>> Stashed changes
